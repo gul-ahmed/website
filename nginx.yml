@@ -1,0 +1,13 @@
+---
+- name: Install Apache2 and Nginx and Copy index.html
+  hosts: machine2
+  become: true
+  tasks:
+    - name: Install Apache2
+      apt:
+        name: nginx
+        state: present
+    - name: Copy index.html
+      copy:
+        src: /home/ubuntu/jenkins/workspace/Test2/index.html
+        dest: /var/www/html/
